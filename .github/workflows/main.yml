@@ -27,6 +27,6 @@ jobs:
        --pull=true
        --no-cache=true
        --force-rm=true
-       -t $(bin/release_name):$(bin/version) .
+       -t ${{ env.REGISTRY }}/${{ github.actor }}/$(bin/release_name):$(bin/version) .
     - name: Push
       run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/$(bin/release_name):$(bin/version)
