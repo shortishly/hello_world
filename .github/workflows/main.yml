@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Hello world action step
       id: hello
-      uses: shortishly/beam-docker-release-action@v1.3
+      uses: shortishly/beam-docker-release-action@v1.4
     - name: Image
       run: bin/mkimage
     - name: Docker
