@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: Hello world action step
       id: hello
-      uses: shortishly/shortishly-hello-world-action@v1
+      uses: shortishly/beam-docker-release-action@v1
       with:
         who-to-greet: 'Mona the Octocat'
     - name: Get the output time
