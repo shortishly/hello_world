@@ -21,10 +21,6 @@ jobs:
     - name: Hello world action step
       id: hello
       uses: shortishly/beam-docker-release-action@v1.3
-      with:
-        who-to-greet: 'Mona the Octocat'
-    - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
     - name: Image
       run: bin/mkimage
     - name: Docker
