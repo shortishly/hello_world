@@ -19,4 +19,4 @@ jobs:
       - name: Build
         run: make
       - name: Beam Docker Relase
-        uses: shortishly/beam-docker-release-action@v1.6
+        uses: shortishly/beam-docker-release-action@v1.7
