@@ -10,26 +10,7 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Compile
+    - name: Build
       run: make
-    - name: Log in to the Container registry
-      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Hello world action step
-      id: hello
-      uses: shortishly/beam-docker-release-action@v1.4
-    - name: Image
-      run: bin/mkimage
-    - name: Docker
-      run: docker build
-       --build-arg REL_NAME=$(bin/release_name)
-       --build-arg ERTS_VSN=$(bin/system_version)
-       --pull=true
-       --no-cache=true
-       --force-rm=true
-       -t ${{ env.REGISTRY }}/${{ github.actor }}/$(bin/release_name):$(bin/version) .
-    - name: Push
-      run: docker push ${{ env.REGISTRY }}/${{ github.actor }}/$(bin/release_name):$(bin/version)
+    - name: Beam Docker Relase
+      uses: shortishly/beam-docker-release-action@v1.5
