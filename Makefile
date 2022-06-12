@@ -19,6 +19,7 @@ PROJECT_VERSION = 0.1.0
 
 RELX_TAR = 0
 
+REL_DEPS = relx
 
 SHELL_OPTS = \
 	-config dev.config \
