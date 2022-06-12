@@ -1,6 +1,6 @@
 # Hello World using BEAM Docker Release Action
 
-![workflow](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg)
+![main](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg)
 
 
 This is an example of a [GitHub
