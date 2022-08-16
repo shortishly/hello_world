@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Build
         run: make
-      - name: Beam Docker Relase
+      - name: Beam Docker Release
         uses: shortishly/beam-docker-release-action@v1.18
         with:
           registry: ghcr.io
