@@ -10,7 +10,7 @@ jobs:
       - name: Build
         run: make
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action
+        uses: shortishly/beam-docker-release-action@d525eff
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
