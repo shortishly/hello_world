@@ -5,10 +5,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build
-        run: make
       - name: Beam Docker Release
         uses: shortishly/beam-docker-release-action@130b0666e152d451e25393de676e5b897996767b
         with:
