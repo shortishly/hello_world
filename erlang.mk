@@ -7506,7 +7506,6 @@ define relx_release.erl
 		VsnStr -> Vsn0
 	end,
 	[LogConfig] = logger:get_handler_config(),
-	erlang:display(LogConfig),
 	logger:set_handler_config(default,
 				  LogConfig#{formatter := {logger_formatter,
                               #{template => [[logger_formatter, header],
