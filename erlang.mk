@@ -7507,7 +7507,7 @@ define relx_release.erl
 	end,
 	Modules = [relx, rlx_resolve],
 	lists:foreach(fun code:ensure_loaded/1, Modules),
-	recon_trace:calls([{M, '_', '_'} || M <- Modules], 10_000, [{scope, local}]),
+	recon_trace:calls([{M, '_', '_'} || M <- Modules], 1000, [{scope, local}]),
 	{ok, _} = relx:build_release(#{name => Name, vsn => Vsn}, Config),
 	halt(0).
 endef
