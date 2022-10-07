@@ -7505,8 +7505,9 @@ define relx_release.erl
 		{semver, _} -> "";
 		VsnStr -> Vsn0
 	end,
-	lists:foreach(fun code:ensure_loaded/1, [relx, rlx_resolve]),
-	recon_trace:calls([{relx, '_', '_'}, {rlx_resolve, '_', '_'}], 1_000, [{scope, local}]),
+	Modules = [relx, rlx_app_info, rlx_assemble, rlx_config, rlx_file_utils, rlx_log, rlx_overlay, rlx_release, rlx_relup, rlx_resolve, rlx_state, rlx_string, rlx_tar, rlx_util],
+	lists:foreach(fun code:ensure_loaded/1, Modules),
+	recon_trace:calls([{M, '_', return_trace} || M <- Modules], 10_000, [{scope, local}]),
 	{ok, _} = relx:build_release(#{name => Name, vsn => Vsn}, Config),
 	halt(0).
 endef
