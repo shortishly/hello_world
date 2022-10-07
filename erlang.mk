@@ -7505,6 +7505,18 @@ define relx_release.erl
 		{semver, _} -> "";
 		VsnStr -> Vsn0
 	end,
+	[LogConfig] = logger:get_handler_config(),
+	erlang:display(LogConfig),
+	logger:set_handler_config(default,
+				  LogConfig#{formatter := {logger_formatter,
+                              #{template => [[logger_formatter, header],
+                                             {pid, [" ", pid, ""], ""},
+                                             {mfa, [" ", mfa, ":", line], ""},
+                                             "\n",
+                                             msg,
+                                             "\n"],
+                                legacy_header => true,
+                                single_line => true}}}),
 	logger:set_module_level([rlx_resolve], debug),
 	{ok, _} = relx:build_release(#{name => Name, vsn => Vsn}, Config),
 	halt(0).
