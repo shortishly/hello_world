@@ -30,7 +30,8 @@ SHELL_DEPS = \
 	sync
 
 DEPS = \
-	cowboy
+	cowboy \
+	recon
 
 dep_cowboy_commit = 2.9.0
 
