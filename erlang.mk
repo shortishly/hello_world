@@ -3390,7 +3390,7 @@ pkg_relx_name = relx
 pkg_relx_description = Sane, simple release creation for Erlang
 pkg_relx_homepage = https://github.com/erlware/relx
 pkg_relx_fetch = git
-pkg_relx_repo = https://github.com/erlware/relx
+pkg_relx_repo = https://github.com/shortishly/relx
 pkg_relx_commit = main
 
 PACKAGES += resource_discovery
@@ -7505,9 +7505,7 @@ define relx_release.erl
 		{semver, _} -> "";
 		VsnStr -> Vsn0
 	end,
-	Modules = [relx, rlx_resolve],
-	lists:foreach(fun code:ensure_loaded/1, Modules),
-	recon_trace:calls([{M, '_', '_'} || M <- Modules], 1000, [{scope, local}]),
+	logger:set_module_level([rlx_resolve], debug),
 	{ok, _} = relx:build_release(#{name => Name, vsn => Vsn}, Config),
 	halt(0).
 endef
