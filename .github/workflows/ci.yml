@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@2ec70f4374c4177f26c25fcadb7cfdfeaa145282
+        uses: shortishly/beam-docker-release-action@59574781df8f7b013b8c46f4260ef204b53fe043
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
