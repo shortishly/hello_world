@@ -3390,7 +3390,7 @@ pkg_relx_name = relx
 pkg_relx_description = Sane, simple release creation for Erlang
 pkg_relx_homepage = https://github.com/erlware/relx
 pkg_relx_fetch = git
-pkg_relx_repo = https://github.com/shortishly/relx
+pkg_relx_repo = https://github.com/erlware/relx
 pkg_relx_commit = main
 
 PACKAGES += resource_discovery
@@ -7505,18 +7505,6 @@ define relx_release.erl
 		{semver, _} -> "";
 		VsnStr -> Vsn0
 	end,
-	[LogConfig] = logger:get_handler_config(),
-	logger:set_handler_config(default,
-				  LogConfig#{formatter := {logger_formatter,
-                              #{template => [[logger_formatter, header],
-                                             {pid, [" ", pid, ""], ""},
-                                             {mfa, [" ", mfa, ":", line], ""},
-                                             "\n",
-                                             msg,
-                                             "\n"],
-                                legacy_header => true,
-                                single_line => true}}}),
-	logger:set_module_level([rlx_resolve], debug),
 	{ok, _} = relx:build_release(#{name => Name, vsn => Vsn}, Config),
 	halt(0).
 endef
