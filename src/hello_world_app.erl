@@ -25,6 +25,7 @@
 
 start(Type, Args) ->
     ?LOG_DEBUG(#{type => Type, args => Args}),
+    ?LOG_DEBUG(#{os_type => erlang:system_info(os_type)}),
 
     try
         {ok, Sup} = hello_world_sup:start_link(),
