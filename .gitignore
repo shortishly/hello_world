@@ -33,3 +33,10 @@ npm-debug.log
 /assets/node_modules/
 
 *~
+
+.erlang.mk
+.hello_world.plt
+_rel
+ebin
+hello_world.d
+recompile.log
