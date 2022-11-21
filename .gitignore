@@ -17,3 +17,6 @@ elvis
 elvis.config
 .fuse_hidden*
 .*DS_Store
+_build/*
+recompile.log
+fly.toml
