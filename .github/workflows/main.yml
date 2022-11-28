@@ -6,12 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@98c4ae8136af2ebddbe5f2bf0d9b76580c95ffab
+        uses: shortishly/beam-docker-release-action@1.22
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{github.actor}}
+          password: ${{secrets.GITHUB_TOKEN}}
           build-command: mix do local.hex --force + deps.get + local.rebar + release
-          build-image: elixir:1.14.1
+          build-image: elixir:1.14.2
           build-platforms: linux/amd64
-          build-tags: ghcr.io/${{ github.repository }}:elixir-phx
+          build-tags: ghcr.io/${{github.repository}}:elixir-phx
