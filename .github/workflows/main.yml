@@ -2,19 +2,19 @@
 on: [push]
 
 env:
-  MIX_ENV: prod
+  MIX_ENV: dev
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@v1.22
+        uses: shortishly/beam-docker-release-action@58ec2a0333eb04dc18365bfc8074451200a63315
         with:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-          build-command: mix do local.hex --force + deps.get + local.rebar + release
+          build-command: mix do local.hex --force + deps.get + local.rebar --force + compile + release
           build-image: elixir:1.14.2
           build-platforms: linux/amd64
           build-tags: ghcr.io/${{github.repository}}:elixir-phx
