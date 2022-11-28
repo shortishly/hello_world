@@ -13,7 +13,13 @@ config :hello_world, HelloWorldWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
-config :logger, level: :debug
+config :logger,
+  :console,
+  format: "[$level] $message\n",
+  handle_otp_reports: false,
+  handle_sasl_reports: false
+
+config :phoenix, :logger, true
 
 # ## SSL Support
 #
