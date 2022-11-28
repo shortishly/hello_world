@@ -1,15 +1,12 @@
 ---
 on: [push]
 
-env:
-  MIX_ENV: prod
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@d7e822b3254fe645911bcd8dd2f92944634306a0
+        uses: shortishly/beam-docker-release-action@48a5159c5409482622f489c57a6c58393e1cac49
         with:
           registry: ghcr.io
           username: ${{github.actor}}
