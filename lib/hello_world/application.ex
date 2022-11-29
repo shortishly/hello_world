@@ -7,13 +7,7 @@ defmodule HelloWorld.Application do
 
   @impl true
   def start(_type, _args) do
-    :redbug.start('cowboy_http')
-    :redbug.start('ranch_acceptor')
-    :redbug.start('ranch_tcp')
-
     children = [
-      # Start the Ecto repository
-      # HelloWorld.Repo,
       # Start the Telemetry supervisor
       HelloWorldWeb.Telemetry,
       # Start the PubSub system

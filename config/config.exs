@@ -7,15 +7,12 @@
 # General application configuration
 import Config
 
-config :hello_world,
-  ecto_repos: [HelloWorld.Repo]
-
 # Configures the endpoint
 config :hello_world, HelloWorldWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: HelloWorldWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: HelloWorld.PubSub,
-  live_view: [signing_salt: "HGPOuqdc"]
+  live_view: [signing_salt: "g0RqZyUL"]
 
 # Configures the mailer
 #

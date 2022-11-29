@@ -7,7 +7,7 @@ defmodule HelloWorldWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_hello_world_key",
-    signing_salt: "SDbAg81Y"
+    signing_salt: "Yye5eujL"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -28,7 +28,6 @@ defmodule HelloWorldWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :hello_world
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
