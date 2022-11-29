@@ -11,7 +11,14 @@ jobs:
           registry: ghcr.io
           username: ${{github.actor}}
           password: ${{secrets.GITHUB_TOKEN}}
-          build-command: mix do local.hex --force + deps.get + local.rebar --force + compile + assets.deploy + phx.digest + release --overwrite
+          build-command: >-
+            mix do local.hex --force +
+            deps.get +
+            local.rebar --force +
+            compile +
+            assets.deploy +
+            phx.digest +
+            release --overwrite
           build-image: elixir:1.14.2
           build-platforms: linux/amd64
           build-tags: ghcr.io/${{github.repository}}:elixir-phx
