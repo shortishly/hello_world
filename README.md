@@ -73,8 +73,9 @@ To run the container:
 
 ```shell
 docker run \
-    --detached \
+    --detach \
     --publish 8080:80 \
+    --pull always \
     --rm \
     ghcr.io/shortishly/hello_world:erlang.mk
 ```
