@@ -1,9 +1,5 @@
 # Hello World using BEAM docker release GitHub action
 
-![erlang-mk](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=erlang-mk)
-![rebar3](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=rebar3)
-![elixir-phx](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=elixir-phx)
-
 
 This is an example of a [GitHub workflow][github-workflow] using the
 [BEAM docker release action][beam-docker-release-action] to package a BEAM
