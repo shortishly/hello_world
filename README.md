@@ -97,6 +97,7 @@ server: Cowboy
 Hello world!
 ```
 
+[baseimages-scratch]: https://docs.docker.com/engine/userguide/eng-image/baseimages/
 [beam-docker-release-action]: https://github.com/shortishly/beam-docker-release-action
 [beam-docker-release-mkimage]: https://github.com/shortishly/beam-docker-release-action/blob/main/bin/mkimage
 [cowboy]: https://github.com/ninenines/cowboy
