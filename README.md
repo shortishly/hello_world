@@ -28,7 +28,7 @@ libraries and binaries that your application [just does not
 need][dockerfile-best-practices].
 
 
-This branch uses [erlang.mk][erlang-mk] to build an [Erlang/OTP][erlang-org]
+This branch uses [erlang.mk][erlang-mk] to build an [Erlang/OTP][erlang]
 with a [Cowboy][cowboy] example application into a release.
 
 The [workflow][workflow] is as follows:
@@ -105,7 +105,7 @@ Hello world!
 [dockerfile-best-practices]: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dont-install-unnecessary-packages
 [elixir]: https://elixir-lang.org
 [erlang-mk]: https://erlang.mk
-[erlang-org]: https://www.erlang.org
+[erlang]: https://www.erlang.org
 [escript]: https://www.erlang.org/doc/man/escript.html
 [ghcr-io]: https://ghcr.io/
 [github-workflow]: https://docs.github.com/en/actions/using-workflows
