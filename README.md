@@ -1,67 +1,49 @@
-# Hello World using BEAM Docker Release Action
+# Hello World using BEAM docker release GitHub action
 
-![main](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg)
+![erlang-mk](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=erlang-mk)
+![rebar3](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=rebar3)
+![elixir-phx](https://github.com/shortishly/hello_world/actions/workflows/main.yml/badge.svg?branch=elixir-phx)
 
 
-This is an example of a [GitHub
-workflow](https://docs.github.com/en/actions/using-workflows) using
-the [BEAM Docker Release
-Action](https://github.com/shortishly/beam-docker-release-action) to
-package a BEAM release as a Docker Image that is from [scratch](https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch).
+This is an example of a [GitHub workflow][github-workflow] using the
+[BEAM docker release action][beam-docker-release-action] to package a BEAM
+release as a Docker Image that is from [scratch][scratch].
 
-The [workflow](https://github.com/shortishly/hello_world/blob/main/.github/workflows/main.yml) is as follows:
+The [BEAM docker release action][beam-docker-release-action] has support for:
 
-```yaml
-on: [push]
+- [Elixir][elixir] with the [Phoenix Framework][phoenix] using [mix][mix] to build;
+- [Erlang/OTP][erlang] with [erlang.mk][erlang-mk];
+- [Erlang/OTP][erlang] with [rebar3][rebar3]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build
-        run: make
-      - name: Beam Docker Relase
-        uses: shortishly/beam-docker-release-action@v1.17
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-```
+This repository has 3 branches, showing support for:
 
-On every push to the repository, the GitHub workflow will:
-- Check out the source code using GitHub's [checkout action](https://github.com/actions/checkout)
-- Build the application using `make` creating a BEAM release
-- The `beam-docker-release-action` then creates a docker image and
-  pushes it to the GitHub container repository
-  
-The built package can be found [here](https://github.com/shortishly?tab=packages&repo_name=hello_world).
+- [Elixir with Phoenix][hello-world-elixir-phx]
+- [Erlang/OTP with erlang.mk][hello-world-erlang-mk]
+- [Erlang/OTP with rebar3][hello-world-rebar3]
 
-The application includes a simple
-[cowboy](https://github.com/ninenines/cowboy) "Hello World!" resource
-to show the container working.
 
-To run the container locally on docker:
-
-```shell
-docker run -d -p 8080:80 --rm ghcr.io/shortishly/hello_world:0.1.0
-```
-
-Once running:
-
-```shell
-curl -i http://localhost:8080/
-```
-
-Will result in:
-
-```
-HTTP/1.1 200 OK
-content-length: 13
-content-type: text/plain
-date: Mon, 07 Feb 2022 16:51:50 GMT
-server: Cowboy
-
-Hello world!
-```
+[baseimages-scratch]: https://docs.docker.com/engine/userguide/eng-image/baseimages/
+[beam-docker-release-action]: https://github.com/shortishly/beam-docker-release-action
+[beam-docker-release-mkimage]: https://github.com/shortishly/beam-docker-release-action/blob/main/bin/mkimage
+[cowboy]: https://github.com/ninenines/cowboy
+[docker-building-multi-stage]: https://docs.docker.com/build/building/multi-stage/
+[docker-com]: https://www.docker.com
+[dockerfile-best-practices]: https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#dont-install-unnecessary-packages
+[elixir]: https://elixir-lang.org
+[erlang-mk]: https://erlang.mk
+[erlang]: https://www.erlang.org
+[escript]: https://www.erlang.org/doc/man/escript.html
+[ghcr-io]: https://ghcr.io/
+[github-workflow]: https://docs.github.com/en/actions/using-workflows
+[hello-world-elixir-phx]: https://github.com/shortishly/hello_world/tree/elixir-phx
+[hello-world-erlang-mk]: https://github.com/shortishly/hello_world/tree/erlang-mk
+[hello-world-rebar3]: https://github.com/shortishly/hello_world/tree/rebar3
+[hw-packages]: https://github.com/shortishly?tab=packages&repo_name=hello_world
+[mix-release]: https://hexdocs.pm/mix/1.14/Mix.Tasks.Release.html
+[mix]: https://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html
+[phoenix]: https://www.phoenixframework.org
+[rebar3]: https://rebar3.org
+[scratch]: https://docs.docker.com/develop/develop-images/baseimages/#create-a-simple-parent-image-using-scratch
+[shortishly-eidfs]: https://shortishly.com/blog/erlang-in-docker-from-scratch/
+[shortishly-elixir-bdra]: https://shortishly.com/blog/elixir-beam-docker-release-action/ 
+[workflow]: https://github.com/shortishly/hello_world/blob/erlang-mk/.github/workflows/ci.yml
