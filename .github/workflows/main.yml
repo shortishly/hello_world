@@ -6,11 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@e9786a302fe4606aa4f5134eac55594eeac06621
+        uses: shortishly/beam-docker-release-action@v1.24
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
           build-image: erlang:25.1
-          build-platforms: linux/amd64,linux/arm64
           build-tags: ghcr.io/${{ github.repository }}:erlang.mk
