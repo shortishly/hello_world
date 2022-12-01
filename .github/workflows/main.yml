@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Beam Docker Release
-        uses: shortishly/beam-docker-release-action@v1.23
+        uses: shortishly/beam-docker-release-action@v1.24
         with:
           registry: ghcr.io
           username: ${{github.actor}}
@@ -20,5 +20,4 @@ jobs:
             phx.digest +
             release --overwrite
           build-image: elixir:1.14.2
-          build-platforms: linux/amd64
           build-tags: ghcr.io/${{github.repository}}:elixir-phx
